@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pierwsza strona w jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+        <script type="text/javascript">
+
+            $(function() {
+                $('a').click(function() {
+                    let zmienna = $(this);
+                    $('#content').fadeOut('medium', function() {
+                        $('#content').load(zmienna.attr('href'), function() {
+                            $('#content').fadeIn();
+                        });
+                    });
+                return false;
+                });
+            })
+
+        </script>
+    </head>
+    <body>
+        <a href="index.html">Linkacz do pierwszej strony</a>
+        <div clas="content"></div>
+    </body>
+</html>

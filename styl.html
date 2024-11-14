@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pierwsza strona w jQuery</title>
+        <style>
+            .niebieski {
+                background:blue;
+                font-size: xx-large;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('button:contains(\'Niebieski\')').click(function () {
+                    $('#first').addClass('niebieski');
+                });
+                $('button:contains(\'Czarny\')').click(function () {
+                    $('#first').removeClass('niebieski');
+                });
+                $('button:contains(\'nadany\')').click(function () {
+                    $('#toggle').toggleClass('niebieski');
+                })
+                $('tr:even').addClass('niebieski');
+            })
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr><td>Poniedziałek</td></tr>
+            <tr><td>Wtorek</td></tr>
+            <tr><td>Środa</td></tr>
+            <tr><td>Czwartek</td></tr>
+            <tr><td>Piątek</td></tr>
+            <tr><td>Sobota</td></tr>
+            <tr><td>Niedziela</td></tr>
+        </table>
+        <div><button>Niebieski</button><button>Czarny</button><span id="first">Tekst testowy do zmiany koloru</span></div>
+        <div><button>który zostanie nadany przez funkcję.</button><span id="toggle">Zmiana przez przełączanie klas</span></div>
+
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pierwsza strona w jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+        <script type="text/javascript">
+
+            $('button').bind('zdarzenie', function() { alert('Naciśnięto przycisk!'); });
+
+            function edycja() {
+                let wiersz = $(this);
+                let button = $('button');
+                wiersz.html('<input id="edycja" value="' + wiersz.text() + '">');
+                $('#edycja').blur(function () {
+                    button.trigger('zdarzenie');
+                    wiersz.text($(this).val());
+                    wiersz.one('click', edycja);
+                }).focus();
+            }
+
+            $(function() {
+                $('td').one('click', edycja);
+                $('button').one('click', edycja);
+            })
+
+        </script>
+    </head>
+    <body>
+        
+        <table>
+            <tr><td>Jeden</td></tr>
+            <tr><td>Dwa</td></tr>
+            <tr><td>Trzy</td></tr>
+            <tr><td>Cztery</td></tr>
+        </table>
+
+        <button id="edycjaButton">Randomowy test button</button>
+
+    </body>
+</html>
