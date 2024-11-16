@@ -9,19 +9,19 @@
             $(function() {
                 $('a').click(function() {
                     let zmienna = $(this);
-                    $('#content').fadeOut('medium', function() {
-                        $('#content').load(zmienna.attr('href'), function() {
-                            $('#content').fadeIn();
-                        });
-                    });
-                return false;
+                    $('#content').animate({height: '0px', width: '0px'}, function() {
+                        $('#content').load(zmienna.attr('href'), function () {
+                            $('#content').animate({height: '500px', width: '500px'})
+                        })
+                    })
+                    return false;
                 });
             })
 
         </script>
     </head>
     <body>
-        <a href="index.html">Linkacz do pierwszej strony</a>
-        <div clas="content"></div>
+        <a href="styl.html">Linkacz wywołujący styl.html</a>
+        <div id="content"></div>
     </body>
 </html>

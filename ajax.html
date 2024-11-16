@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pierwsza strona w jQuery</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <style>
+            a { margin: 10px; }
+            #content { border: 1px solid black; padding: 20px; width: 50%;}
+        </style>
+        <script type="text/javascript">
+
+            let rosliny = 
+            { "Rosliny": {
+                "Egzotyczne": [
+                    {"Nazwa": "Palma", "Miejsce": "Grecja"},
+                    {"Nazwa": "Eukaliptus", "Miejsce": "Australia"},
+                    {"Nazwa": "Dynia", "Miejsce": "Polska"},
+                    ]
+                }
+            };
+
+
+            $(function () {
+                // $('a').click(function () {
+                //     $('#content').load($(this).attr('href'));
+                //     return false;
+                // })
+
+                for (let i = 0; i < rosliny.Rosliny.Egzotyczne.length; i++) {
+                    $('#plants').append(
+                        '<div>' 
+                        + rosliny.Rosliny.Egzotyczne[i].Nazwa 
+                        + ' ' 
+                        + rosliny.Rosliny.Egzotyczne[i].Miejsce 
+                        + '</div>');
+                }
+
+            });
+        </script>
+    </head>
+    <body>
+        <header><nav>
+            <a href="event.html">Event</a>
+            <a href="styl.html">Styl</a>
+            <a href="animacje.html">Animacje</a>
+        </nav></header>
+        <div id="content"></div>
+        <div id="plants"></div>
+    </body>
+</html>
